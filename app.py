@@ -13,7 +13,7 @@ from typing import List, Dict, Any
 # =============================================================================
 
 # Prioritizes environment variable (best practice) over hardcoded key for local testing.
-YOUR_API_KEY = os.environ.get("OPENAI_API_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1YnJhbWFuaS5hcnVtdWdhbUBzdHJhaXZlLmNvbSJ9.4I_PfJoSciCcybufAPi_p7wWqSulXZodXx_7jK08zek")
+YOUR_API_KEY = os.environ.get("OPENAI_API_KEY", "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")
 os.environ["OPENAI_API_KEY"] = YOUR_API_KEY
 
 @st.cache_resource
@@ -25,7 +25,7 @@ def get_llm_client():
 
     return OpenAI(
         api_key=YOUR_API_KEY,
-        base_url="https://llmfoundry.straive.com/openrouter/v1",
+        base_url="https://openrouter.ai/api/v1",
     )
 
 # -----------------------------------------------------------------------------
