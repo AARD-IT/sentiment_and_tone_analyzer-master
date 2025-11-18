@@ -1,5 +1,6 @@
-streamlit
+streamlit==1.37.0  # Safe version
 pandas
-openai
-openpyxl # Crucial for reading .xlsx files
+openai==1.40.0     # Pinning the version used in your previous successful analysis
+openpyxl
 httpx
+gitpython          # Required dependency for Streamlit Cloud to manage repositories
