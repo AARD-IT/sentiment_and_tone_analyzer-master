@@ -202,7 +202,7 @@ def main():
 
 
     # === LOGO AND HEADER (omitted for brevity) ===
-    LOGO_PATH = Path("assets") / "straive_logo.png"
+    LOGO_PATH = Path("assets") / "an_logo.png"
     
     col_logo, col_title = st.columns([1, 4])
     with col_logo:
