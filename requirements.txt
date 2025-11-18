@@ -1,0 +1,5 @@
+streamlit
+pandas
+openai
+openpyxl # Crucial for reading .xlsx files
+httpx
