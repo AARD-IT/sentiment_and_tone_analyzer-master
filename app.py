@@ -47,6 +47,7 @@ Your task is to perform an in-depth analysis of the provided text.
 **Text to analyze:**
 "{text_to_analyze}"
 """
+
 # -----------------------------------------------------------------------------
 # 3. Core Analysis Function
 # -----------------------------------------------------------------------------
@@ -192,7 +193,7 @@ def load_demo_file() -> pd.DataFrame:
 
 
 def main():
-    st.set_page_config(page_title="AI Customer Feedback Analyzer", layout="wide")
+    st.set_page_config(page_title="Analytics Avenue - Feedback Analyzer", layout="wide")
 
     # === STATE INITIALIZATION ===
     if 'analysis_completed_df' not in st.session_state:
@@ -200,29 +201,24 @@ def main():
     if 'df_input_data' not in st.session_state:
         st.session_state.df_input_data = pd.DataFrame()
 
+    # =========================================================================
+    # UPDATED HEADER: Company Logo + Name
+    # =========================================================================
+    logo_url = "https://raw.githubusercontent.com/Analytics-Avenue/streamlit-dataapp/main/logo.png"
+    st.markdown(f"""
+    <div style="display:flex; align-items:center; margin-bottom:20px;">
+        <img src="{logo_url}" width="60" style="margin-right:10px;">
+        <div style="line-height:1;">
+            <div style="color:#064b86; font-size:36px; font-weight:bold; margin:0;">Analytics Avenue &</div>
+            <div style="color:#064b86; font-size:36px; font-weight:bold; margin:0;">Advanced Analytics</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
-    # === LOGO AND HEADER (omitted for brevity) ===
-    LOGO_PATH = Path("assets") / "an_logo.png"
+    # App Specific Title (Kept below branding)
+    st.title("🗣️ AI Customer Feedback Analyzer")
+    st.subheader("Sentiment and Tone Categorization using LLMs")
     
-    col_logo, col_title = st.columns([1, 4])
-    with col_logo:
-        try:
-            found_logo = False
-            if os.path.isdir('assets'):
-                for f in os.listdir('assets'):
-                    if 'logo' in f.lower() and f.lower().endswith('.png'):
-                        st.image(str(Path('assets') / f), width=150)
-                        found_logo = True
-                        break
-            if not found_logo:
-                st.warning("⚠️ Logo file not found at 'assets/straive_logo.png'.")
-        except:
-            pass 
-            
-    with col_title:
-        st.title("🗣️ AI Customer Feedback Analyzer")
-        st.subheader("Sentiment and Tone Categorization using LLMs")
-        
     st.markdown("---")
     
     # === INITIAL CHECKS ===
